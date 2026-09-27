@@ -1,0 +1,426 @@
+/* ==========================================================================
+   RR FURNITURES — MASTER DESIGN SYSTEM & FOUNDATIONAL TOKENS
+   A cross between a luxury interior-design studio, architectural portfolio, 
+   and bespoke furniture showroom.
+   ========================================================================== */
+
+:root {
+  /* Brand Master Color System */
+  --burgundy: #651F2A;
+  --burgundy-light: #7E2835;
+  --burgundy-dark: #49141D;
+  --burgundy-translucent: rgba(101, 31, 42, 0.12);
+  
+  --charcoal: #171515;
+  --charcoal-elevated: #221F1F;
+  --charcoal-card: #282424;
+  --charcoal-border: rgba(255, 255, 255, 0.08);
+
+  --terracotta: #A95743;
+  --terracotta-light: #C06B56;
+  
+  --mustard: #C99A32;
+  --mustard-light: #E0AE41;
+  --mustard-translucent: rgba(201, 154, 50, 0.15);
+  
+  --ivory: #F6F0E7;
+  --ivory-surface: #FAF7F2;
+  --beige: #DED3C2;
+  --beige-muted: #ECE4D8;
+  
+  --sage: #7D8467;
+  --blue-indigo: #3A6073;
+  --rose-mauve: #8B5D7A;
+
+  /* Semantic Typography Scales */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-brand: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Fluid Spacing Scale */
+  --section-padding-y: clamp(4.5rem, 8vw, 8.5rem);
+  --section-padding-x: clamp(1.25rem, 5vw, 4.5rem);
+  --container-max-width: 1440px;
+
+  /* Architectural Radii & Shadows */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-editorial: 0 16px 40px -12px rgba(23, 21, 21, 0.14);
+  --shadow-elevated: 0 24px 50px -10px rgba(23, 21, 21, 0.28);
+  --shadow-burgundy: 0 20px 45px -10px rgba(101, 31, 42, 0.25);
+  
+  /* Glassmorphism Specs */
+  --glass-bg: rgba(23, 21, 21, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(16px);
+
+  /* Transitions */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 220ms;
+  --duration-medium: 400ms;
+  --duration-slow: 700ms;
+}
+
+/* ==========================================================================
+   RESET & GLOBAL BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--charcoal);
+  color: var(--ivory);
+  line-height: 1.65;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+::-webkit-scrollbar-thumb {
+  background: #332E2E;
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy);
+}
+
+::selection {
+  background-color: var(--burgundy);
+  color: var(--ivory);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY SYSTEM
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: inherit;
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Fluid Heading Classes */
+.h1-hero {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6.5vw, 6.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.h2-editorial {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.h3-card {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.25;
+}
+
+.label-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mustard);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.label-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 1.5px;
+  background-color: currentColor;
+}
+
+/* ==========================================================================
+   LAYOUT & 12-COLUMN ARCHITECTURAL GRID
+   ========================================================================== */
+.container-custom {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+}
+
+.section-wrapper {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  position: relative;
+  width: 100%;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .grid-12 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   SURFACE RHYTHM CLASSES
+   ========================================================================== */
+.surface-hero {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+}
+
+.surface-ivory {
+  background-color: var(--ivory);
+  color: var(--charcoal);
+}
+
+.surface-beige {
+  background-color: var(--beige-muted);
+  color: var(--charcoal);
+}
+
+.surface-burgundy {
+  background-color: var(--burgundy);
+  color: var(--ivory);
+}
+
+.surface-charcoal {
+  background-color: var(--charcoal);
+  color: var(--ivory);
+}
+
+.surface-charcoal-deep {
+  background-color: #0E0D0D;
+  color: var(--ivory);
+}
+
+/* ==========================================================================
+   COMPONENTS & UTILITIES
+   ========================================================================== */
+/* Glassmorphism Navigation & Cards */
+.glass-panel {
+  background: rgba(23, 21, 21, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-light {
+  background: rgba(246, 240, 231, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(23, 21, 21, 0.08);
+}
+
+/* Editorial Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: var(--burgundy);
+  color: var(--ivory);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-editorial);
+}
+
+.btn-primary:hover {
+  background-color: var(--burgundy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-burgundy);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: transparent;
+  color: inherit;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-editorial);
+  opacity: 0.85;
+}
+
+.btn-secondary:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: var(--mustard);
+  color: var(--charcoal);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-editorial);
+}
+
+.btn-gold:hover {
+  background-color: var(--mustard-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(201, 154, 50, 0.35);
+}
+
+/* Architectural Separator Line */
+.divider-subtle {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  margin: 2rem 0;
+}
+
+.divider-subtle-dark {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(23, 21, 21, 0.12), transparent);
+  margin: 2rem 0;
+}
+
+/* Skeleton Loading Shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #252222 25%, #343030 50%, #252222 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: var(--radius-xs);
+}
+
+.skeleton-light {
+  background: linear-gradient(90deg, #E6DDD0 25%, #F4EDE2 50%, #E6DDD0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: var(--radius-xs);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Image Aspect Utilities */
+.img-editorial {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--duration-slow) var(--ease-editorial);
+}
+
+/* Scroll progress bar */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--mustard);
+  transform-origin: 0%;
+  z-index: 1000;
+}
+
+/* Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

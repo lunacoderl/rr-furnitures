@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" fill="none">
+  <!-- Monogram Box -->
+  <rect x="2" y="6" width="48" height="48" rx="10" fill="#651F2A" />
+  <rect x="5" y="9" width="42" height="42" rx="8" stroke="#C99A32" stroke-width="1" opacity="0.7" />
+  <text x="26" y="39" font-family="'Cinzel', serif" font-size="24" font-weight="700" fill="#F6F0E7" text-anchor="middle">RR</text>
+  
+  <!-- Text Brand -->
+  <text x="64" y="32" font-family="'Cinzel', 'Playfair Display', serif" font-size="20" font-weight="700" fill="#F6F0E7" letter-spacing="3.5">RR FURNITURES</text>
+  <text x="65" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="500" fill="#DED3C2" letter-spacing="4">CUSTOM SOFAS • CRAFT • CARE</text>
+</svg>
