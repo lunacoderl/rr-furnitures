@@ -386,174 +386,171 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* FULL-SCREEN MOBILE STAGGERED OVERLAY MENU */}
+      {/* COMPACT FLOATING MOBILE DROPDOWN (Small, Right below header, NOT full screen) */}
       {mobileMenuOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 990,
-            backgroundColor: '#141212',
-            backgroundImage: 'radial-gradient(circle at top right, #25181A 0%, #141212 70%)',
-            padding: '5.5rem 1.75rem 2rem 1.75rem',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            boxSizing: 'border-box',
-            overflowY: 'auto'
-          }}
-          className="lg:hidden"
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <>
+          {/* Subtle click-outside backdrop */}
+          <div
+            onClick={() => setMobileMenuOpen(false)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+              backdropFilter: 'blur(3px)',
+              WebkitBackdropFilter: 'blur(3px)',
+              zIndex: 995
+            }}
+            className="lg:hidden"
+            aria-hidden="true"
+          />
+
+          {/* Small Sleek Floating Menu Card */}
+          <div
+            style={{
+              position: 'fixed',
+              top: '68px',
+              right: '1rem',
+              width: 'calc(100% - 2rem)',
+              maxWidth: '300px',
+              zIndex: 999,
+              backgroundColor: 'rgba(20, 18, 18, 0.97)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              borderRadius: '16px',
+              border: '1.5px solid rgba(201, 154, 50, 0.35)',
+              boxShadow: '0 16px 40px rgba(0, 0, 0, 0.7)',
+              padding: '1rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+              boxSizing: 'border-box'
+            }}
+            className="lg:hidden"
+          >
+            {/* Header label */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '0.4rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
               <span
                 style={{
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.18em',
+                  fontSize: '0.68rem',
+                  letterSpacing: '0.14em',
                   color: '#C99A32',
                   textTransform: 'uppercase',
                   fontWeight: 700
                 }}
               >
-                NAVIGATION DIRECTORY
+                Menu Directory
               </span>
               <span
                 style={{
-                  fontSize: '0.72rem',
-                  color: '#9C8F7E',
+                  fontSize: '0.68rem',
+                  color: '#A89985',
                   fontWeight: 500
                 }}
               >
-                RR FURNITURES • ONGOLE
+                RR Furnitures
               </span>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {navLinks.map((link, idx) => {
-                const isActive = location.pathname === link.path;
+            {/* Navigation links */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+              {navLinks.map((link) => {
+                const isActive =
+                  location.pathname === link.path ||
+                  (link.path !== '/' && location.pathname.startsWith(link.path));
+
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '1.75rem',
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.92rem',
+                      fontWeight: isActive ? 700 : 500,
                       textDecoration: 'none',
                       color: isActive ? '#C99A32' : '#F6F0E7',
+                      backgroundColor: isActive ? 'rgba(201, 154, 50, 0.12)' : 'transparent',
+                      padding: '0.55rem 0.75rem',
+                      borderRadius: '8px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                      paddingBottom: '0.65rem'
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     <span>{link.label}</span>
-                    <span
-                      style={{
-                        fontSize: '0.85rem',
-                        color: '#A89985',
-                        fontFamily: 'var(--font-sans)',
-                        opacity: 0.7
-                      }}
-                    >
-                      0{idx + 1}
-                    </span>
+                    {isActive && (
+                      <span
+                        style={{
+                          width: '6px',
+                          height: '6px',
+                          borderRadius: '50%',
+                          backgroundColor: '#C99A32'
+                        }}
+                      />
+                    )}
                   </Link>
                 );
               })}
             </div>
-          </div>
 
-          {/* Mobile Overlay Footer Info */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.15rem',
-              paddingTop: '1.25rem',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-            }}
-          >
-            <div>
-              <div style={{ color: '#F6F0E7', fontWeight: 600, fontSize: '0.9rem' }}>
-                RR Furnitures
-              </div>
-              <div style={{ color: '#C2B6A6', fontSize: '0.8rem', opacity: 0.85 }}>
-                Rikshala Bazar, Islampet, 1st Line Corner, Ongole - 523001
-              </div>
+            {/* Subtle Divider */}
+            <div style={{ height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.08)' }} />
+
+            {/* ONLY Call and WhatsApp action buttons! */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+              <a
+                href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
+                style={{
+                  width: '100%',
+                  padding: '0.6rem',
+                  backgroundColor: '#651F2A',
+                  color: '#F6F0E7',
+                  borderRadius: '8px',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.45rem',
+                  fontSize: '0.82rem',
+                  fontFamily: 'var(--font-sans)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)'
+                }}
+              >
+                <Phone size={14} />
+                <span>Call {business.contact?.phone || business.phone || '099857 04432'}</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  openDirectWhatsApp();
+                  setMobileMenuOpen(false);
+                }}
+                style={{
+                  width: '100%',
+                  padding: '0.6rem',
+                  backgroundColor: '#25D366',
+                  color: '#FFFFFF',
+                  borderRadius: '8px',
+                  fontWeight: 600,
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.45rem',
+                  fontSize: '0.82rem',
+                  fontFamily: 'var(--font-sans)',
+                  cursor: 'pointer'
+                }}
+              >
+                <MessageCircle size={15} />
+                <span>Chat on WhatsApp</span>
+              </button>
             </div>
-
-            <div style={{ display: 'flex', gap: '1.25rem' }}>
-              <a
-                href={business.social?.instagram?.url || 'https://www.instagram.com/rr_furnitures/'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  color: '#C99A32',
-                  fontSize: '0.85rem',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.25rem'
-                }}
-              >
-                Instagram <ArrowUpRight size={13} />
-              </a>
-              <a
-                href={business.social?.youtube?.url || 'https://www.youtube.com/@rrfurnitures'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  color: '#C99A32',
-                  fontSize: '0.85rem',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.25rem'
-                }}
-              >
-                YouTube <ArrowUpRight size={13} />
-              </a>
-              <a
-                href={business.social?.x?.url || business.social?.twitter?.url || 'https://x.com/rr_furnitures'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  color: '#C99A32',
-                  fontSize: '0.85rem',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.25rem'
-                }}
-              >
-                X (Twitter) <ArrowUpRight size={13} />
-              </a>
-            </div>
-
-            <a
-              href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
-              style={{
-                width: '100%',
-                padding: '0.8rem',
-                backgroundColor: '#651F2A',
-                color: '#F6F0E7',
-                textAlign: 'center',
-                borderRadius: '6px',
-                fontWeight: 600,
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.5rem',
-                fontSize: '0.9rem'
-              }}
-            >
-              <Phone size={16} />
-              Call {business.contact?.phone || business.phone || '099857 04432'}
-            </a>
           </div>
-        </div>
+        </>
       )}
     </>
   );

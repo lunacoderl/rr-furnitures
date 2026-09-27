@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, ArrowUp } from 'lucide-react';
-import { InstagramIcon, YoutubeIcon, TwitterXIcon } from '../ui/SocialIcons';
+import { Phone, MapPin, ArrowUp, MessageCircle } from 'lucide-react';
 import { business } from '../../data/business';
+import { openDirectWhatsApp } from '../../utils/createWhatsAppMessage';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -188,7 +188,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 5: Follow Us */}
+          {/* Column 5: Direct Connect (Call & WhatsApp only) */}
           <div>
             <h4
               style={{
@@ -199,91 +199,62 @@ export default function Footer() {
                 letterSpacing: '0.04em'
               }}
             >
-              Follow Us
+              Direct Connect
             </h4>
-            <div style={{ display: 'flex', gap: '0.6rem' }}>
-              <a
-                href={business.social.instagram.url}
-                target="_blank"
-                rel="noreferrer"
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <button
+                type="button"
+                onClick={() => openDirectWhatsApp()}
                 style={{
-                  width: '34px',
-                  height: '34px',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(255,255,255,0.25)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  padding: '0.55rem 0.85rem',
+                  borderRadius: '6px',
+                  backgroundColor: '#25D366',
                   color: '#FFFFFF',
-                  transition: 'all 0.2s ease'
+                  border: 'none',
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-sans)',
+                  transition: 'opacity 0.2s ease'
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#D4AF37';
-                  e.currentTarget.style.color = '#D4AF37';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
-                  e.currentTarget.style.color = '#FFFFFF';
-                }}
-                aria-label="Instagram"
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
               >
-                <InstagramIcon size={16} />
-              </a>
+                <MessageCircle size={15} />
+                <span>WhatsApp Us</span>
+              </button>
 
               <a
-                href={business.social.youtube.url}
-                target="_blank"
-                rel="noreferrer"
+                href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
                 style={{
-                  width: '34px',
-                  height: '34px',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(255,255,255,0.25)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
+                  gap: '0.5rem',
+                  padding: '0.55rem 0.85rem',
+                  borderRadius: '6px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  color: '#F6F0E7',
+                  textDecoration: 'none',
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  fontFamily: 'var(--font-sans)',
                   transition: 'all 0.2s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#D4AF37';
-                  e.currentTarget.style.color = '#D4AF37';
+                  e.currentTarget.style.borderColor = '#C99A32';
+                  e.currentTarget.style.color = '#C99A32';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
-                  e.currentTarget.style.color = '#FFFFFF';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                  e.currentTarget.style.color = '#F6F0E7';
                 }}
-                aria-label="YouTube"
               >
-                <YoutubeIcon size={16} />
-              </a>
-
-              <a
-                href={business.social?.x?.url || business.social?.twitter?.url || 'https://x.com/rrenterprises99'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  width: '34px',
-                  height: '34px',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(255,255,255,0.25)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF',
-                  transition: 'all 0.2s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#D4AF37';
-                  e.currentTarget.style.color = '#D4AF37';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
-                  e.currentTarget.style.color = '#FFFFFF';
-                }}
-                aria-label="X (Twitter)"
-              >
-                <TwitterXIcon size={14} />
+                <Phone size={14} />
+                <span>Call Hotline</span>
               </a>
             </div>
           </div>
