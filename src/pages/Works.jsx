@@ -43,7 +43,7 @@ export default function Works() {
             </RevealUp>
             <RevealUp delay={0.2}>
               <p style={{ color: '#DED3C2', fontSize: '1.1rem', lineHeight: 1.8, opacity: 0.9 }}>
-                Explore custom-designed sectionals, sofa-cum-beds, Chesterfield tufted pieces, and complete living room suites crafted and delivered by RR Furnitures in Ongole.
+                Explore custom-designed sectionals, sofa-cum-beds, Chesterfield tufted pieces, and complete living room suites crafted and delivered by RR Enterprises in Ongole.
               </p>
             </RevealUp>
           </div>

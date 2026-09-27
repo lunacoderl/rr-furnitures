@@ -1,6 +1,6 @@
-# RR Furnitures — Bespoke Luxury Sofa Studio & Manufacturing Platform
+# RR Enterprises — Bespoke Luxury Sofa Studio & Manufacturing Platform
 
-A modern luxury web application for **RR Furnitures**, Ongole's premier bespoke sofa designer, custom furniture manufacturer, and furniture-care atelier.
+A modern luxury web application for **RR Enterprises**, Ongole's premier bespoke sofa designer, custom furniture manufacturer, and furniture-care atelier.
 
 Designed with an editorial architectural aesthetic, rich typography (Cinzel & Playfair Display), responsive 12-column grid system, and high-performance interactive features.
 
@@ -85,7 +85,7 @@ The project includes `vercel.json` configured for single-page application routin
 
 ## 📍 Business Information
 
-- **Studio:** RR Furnitures
+- **Studio:** RR Enterprises
 - **Location:** Rikshala Bazar, Islampet, 1st Line Corner, Ongole, Andhra Pradesh - 523001
 - **Phone:** +91 99857 04432
 - **Instagram:** [@rr_furnitures](https://www.instagram.com/rr_furnitures/)

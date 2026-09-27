@@ -53,7 +53,7 @@ export default function BrandStatement() {
                   display: 'block'
                 }}
               >
-                ABOUT RR FURNITURES
+                ABOUT RR Enterprises
               </span>
             </div>
 
@@ -86,7 +86,7 @@ export default function BrandStatement() {
                 maxWidth: '480px'
               }}
             >
-              RR Furnitures brings together customization, manufacturing, upholstery and furniture-care services to create solutions that fit different spaces and requirements.
+              RR Enterprises brings together customization, manufacturing, upholstery and furniture-care services to create solutions that fit different spaces and requirements.
             </p>
 
             {/* Know Our Story Button */}

@@ -33,7 +33,7 @@ export default function AboutHero() {
       >
         <img
           src="/hero-contact.png"
-          alt="Where Comfort Meets Craft - RR Furnitures living room"
+          alt="Where Comfort Meets Craft - RR Enterprises living room"
           style={{
             width: '100%',
             height: '100%',
@@ -133,7 +133,7 @@ export default function AboutHero() {
               maxWidth: '480px'
             }}
           >
-            At RR Furnitures, we bring together design, materials and craftsmanship to create furniture that fits your space and your lifestyle.
+            At RR Enterprises, we bring together design, materials and craftsmanship to create furniture that fits your space and your lifestyle.
           </p>
 
           {/* Action Button */}

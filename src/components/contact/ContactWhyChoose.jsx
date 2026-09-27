@@ -63,7 +63,7 @@ export default function ContactWhyChoose() {
               }}
             >
               Why Contact<br />
-              RR Furnitures?
+              RR Enterprises?
             </h2>
 
             <div
@@ -137,7 +137,7 @@ export default function ContactWhyChoose() {
             >
               <img
                 src="/hero-work.png"
-                alt="RR Furnitures Blue Modular Sofa Creation"
+                alt="RR Enterprises Blue Modular Sofa Creation"
                 style={{
                   width: '100%',
                   height: '100%',

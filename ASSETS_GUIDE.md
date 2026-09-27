@@ -1,6 +1,6 @@
-# RR FURNITURES — ASSET DROP ZONE GUIDE
+# RR Enterprises — ASSET DROP ZONE GUIDE
 
-Welcome! This folder structure is fully prepared for you to add your official photographs, videos, and logo assets for **RR Furnitures**.
+Welcome! This folder structure is fully prepared for you to add your official photographs, videos, and logo assets for **RR Enterprises**.
 
 ---
 
@@ -10,7 +10,7 @@ You can drop your media files directly into `public/` (recommended for static se
 
 ### 1. Logo
 **Path:** `public/logo/` or `src/assets/logo/`
-- `logo.svg` / `logo.png` (Main RR Furnitures logo / RR Monogram)
+- `logo.svg` / `logo.png` (Main RR Enterprises logo / RR Monogram)
 - `logo-white.svg` / `logo-white.png` (White/light version for dark backgrounds)
 - `favicon.svg` / `favicon.ico`
 

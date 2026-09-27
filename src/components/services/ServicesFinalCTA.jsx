@@ -27,7 +27,7 @@ export default function ServicesFinalCTA() {
       >
         <img
           src="/hero-home.png"
-          alt="RR Furnitures luxury sofa interior"
+          alt="RR Enterprises luxury sofa interior"
           style={{
             width: '100%',
             height: '100%',

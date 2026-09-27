@@ -33,7 +33,7 @@ export default function ServicesHero() {
       >
         <img
           src="/images/sofas/sofawork-02.png"
-          alt="Complete Furniture Solutions - RR Furnitures"
+          alt="Complete Furniture Solutions - RR Enterprises"
           style={{
             width: '100%',
             height: '100%',

@@ -89,7 +89,7 @@ export default function AboutOurStory() {
                 maxWidth: '380px'
               }}
             >
-              RR Furnitures focuses on creating furniture that balances comfort, design and practical requirements. From customized sofa designs to manufacturing, upholstery and furniture-care services, we work across different stages of the furniture experience.
+              RR Enterprises focuses on creating furniture that balances comfort, design and practical requirements. From customized sofa designs to manufacturing, upholstery and furniture-care services, we work across different stages of the furniture experience.
             </p>
 
             <Link
@@ -155,7 +155,7 @@ export default function AboutOurStory() {
             >
               <img
                 src="/hero-contact.png"
-                alt="RR Furnitures bespoke living space"
+                alt="RR Enterprises bespoke living space"
                 style={{
                   width: '100%',
                   height: '100%',

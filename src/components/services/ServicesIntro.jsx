@@ -59,7 +59,7 @@ export default function ServicesIntro() {
                 maxWidth: '360px'
               }}
             >
-              Whether you want a new custom sofa, need repair, a deep clean, or are looking for quality upholstery solutions, RR Furnitures is here to help.
+              Whether you want a new custom sofa, need repair, a deep clean, or are looking for quality upholstery solutions, RR Enterprises is here to help.
             </p>
           </div>
 
@@ -76,7 +76,7 @@ export default function ServicesIntro() {
             >
               <img
                 src="/hero-contact.png"
-                alt="Furniture Care at Every Stage - RR Furnitures"
+                alt="Furniture Care at Every Stage - RR Enterprises"
                 style={{
                   width: '100%',
                   height: '100%',

@@ -284,7 +284,7 @@ export default function ContactFormSection({ preselectedService }) {
             >
               <img
                 src="/hero-home.png"
-                alt="RR Furnitures Showroom Showcase"
+                alt="RR Enterprises Showroom Showcase"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -329,7 +329,7 @@ export default function ContactFormSection({ preselectedService }) {
                     margin: '0 0 1.25rem 0'
                   }}
                 >
-                  RR Furnitures<br />
+                  RR Enterprises<br />
                   Rikshala Bazar, Islampet,<br />
                   1st Line, Corner, Ongole,<br />
                   Andhra Pradesh 523001

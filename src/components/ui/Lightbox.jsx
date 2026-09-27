@@ -38,7 +38,7 @@ export default function Lightbox({ isOpen, items = [], activeIndex = 0, onClose,
 
   const currentItem = items[activeIndex];
   const imageSrc = typeof currentItem === 'string' ? currentItem : currentItem?.image || currentItem?.src;
-  const imageTitle = typeof currentItem === 'object' ? currentItem?.title : 'RR Furnitures Showcase';
+  const imageTitle = typeof currentItem === 'object' ? currentItem?.title : 'RR Enterprises Showcase';
   const imageCategory = typeof currentItem === 'object' ? currentItem?.categoryLabel || currentItem?.category : 'BESPOKE CRAFT';
   const imageDesc = typeof currentItem === 'object' ? currentItem?.description : '';
 

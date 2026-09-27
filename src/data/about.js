@@ -1,17 +1,17 @@
 /**
- * RR FURNITURES — ABOUT PAGE DATA
+ * RR Enterprises — ABOUT PAGE DATA
  * Architectural storytelling, craftsmanship philosophy, and verified milestones.
  */
 
 export const aboutContent = {
-  eyebrow: "ABOUT RR FURNITURES",
+  eyebrow: "ABOUT RR Enterprises",
   heroTitle: "Furniture Made Around the Way You Live.",
-  heroSubtitle: "At RR Furnitures, we bring together design, materials, and craftsmanship to create furniture that fits your space and your comfort.",
+  heroSubtitle: "At RR Enterprises, we bring together design, materials, and craftsmanship to create furniture that fits your space and your comfort.",
   
   intro: {
     heading: "More Than Furniture.",
     subheading: "Comfort. Craft. Choice.",
-    text: "RR Furnitures brings together furniture manufacturing, customization, upholstery, and furniture-care solutions under one roof. From selecting the right materials to shaping the final form, our focus is on creating furniture around the customer's real requirements.",
+    text: "RR Enterprises brings together furniture manufacturing, customization, upholstery, and furniture-care solutions under one roof. From selecting the right materials to shaping the final form, our focus is on creating furniture around the customer's real requirements.",
     pillars: [
       {
         tag: "CUSTOM",
@@ -33,7 +33,7 @@ export const aboutContent = {
   
   story: {
     heading: "Built Around Craftsmanship.",
-    text: "RR Furnitures focuses on creating furniture that balances comfort, architectural proportion, and everyday utility. From customized living room sectionals to repair and cleaning services, our team works across every stage of the furniture journey.",
+    text: "RR Enterprises focuses on creating furniture that balances comfort, architectural proportion, and everyday utility. From customized living room sectionals to repair and cleaning services, our team works across every stage of the furniture journey.",
     stages: [
       { step: "01", name: "DESIGN", desc: "Understanding the room geometry and ergonomic preference." },
       { step: "02", name: "MATERIAL", desc: "Selecting durable timber, branded foams, and textured fabrics." },

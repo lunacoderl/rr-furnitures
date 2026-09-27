@@ -54,7 +54,7 @@ export default function Navbar() {
               <span>RR</span>
             </div>
             <div className="navbar__brand-text">
-              <span className="navbar__brand-name">RR Furnitures</span>
+              <span className="navbar__brand-name">RR Enterprises</span>
               <span className="navbar__brand-sub">Ongole</span>
             </div>
           </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
 
         {/* Center: Title */}
         <Link to="/" className="navbar__mobile-title">
-          RR Furnitures
+          RR Enterprises
         </Link>
 
         {/* Right: Hamburger */}

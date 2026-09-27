@@ -1,5 +1,5 @@
 /**
- * RR FURNITURES — WHATSAPP MESSAGE GENERATOR UTILITY
+ * RR Enterprises — WHATSAPP MESSAGE GENERATOR UTILITY
  * 100% frontend-only enquiry handler.
  * Generates an architectural, structured enquiry message and opens WhatsApp.
  */
@@ -10,7 +10,7 @@ export function formatWhatsAppMessage(data) {
   const { name, phone, service, requirement, contactPreference } = data;
 
   const lines = [
-    `*NEW ENQUIRY — RR FURNITURES*`,
+    `*NEW ENQUIRY — RR Enterprises*`,
     `━━━━━━━━━━━━━━━━━━━━━━`,
     `👤 *Client Name:* ${name?.trim() || "Not specified"}`,
     `📞 *Phone Number:* ${phone?.trim() || "Not specified"}`,
@@ -20,7 +20,7 @@ export function formatWhatsAppMessage(data) {
     `📝 *Requirement Details:*`,
     `${requirement?.trim() || "Interested in learning more about your furniture services and custom designs."}`,
     `━━━━━━━━━━━━━━━━━━━━━━`,
-    `_Sent via RR Furnitures Web Portal_`
+    `_Sent via RR Enterprises Web Portal_`
   ];
 
   return lines.join("\n");
@@ -39,7 +39,7 @@ export function openWhatsAppEnquiry(data, customPhone = null) {
 }
 
 export function openDirectWhatsApp(customMessage = null) {
-  const text = customMessage || "Hello RR Furnitures, I would like to know more about your custom sofas and furniture services.";
+  const text = customMessage || "Hello RR Enterprises, I would like to know more about your custom sofas and furniture services.";
   const encoded = encodeURIComponent(text);
   const url = `https://wa.me/${business.whatsappRaw}?text=${encoded}`;
   

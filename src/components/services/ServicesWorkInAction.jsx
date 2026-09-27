@@ -51,7 +51,7 @@ export default function ServicesWorkInAction() {
             >
               <img
                 src="/hero-work.png"
-                alt="Real furniture in real living space - RR Furnitures"
+                alt="Real furniture in real living space - RR Enterprises"
                 style={{
                   width: '100%',
                   height: '100%',

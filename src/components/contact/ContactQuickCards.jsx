@@ -9,10 +9,10 @@ export default function ContactQuickCards() {
       id: 'call',
       icon: Phone,
       title: 'Call Us',
-      highlight: business.contact?.phoneDisplay || '099857 04432',
+      highlight: business.contact?.phoneDisplay || '79971 45791',
       desc: 'Talk directly with our team.',
       action: () => {
-        window.location.href = `tel:${business.contact?.phone || '09985704432'}`;
+        window.location.href = `tel:${business.contact?.phone || '07997145791'}`;
       },
       image: '/images/workshop/workshop-01.jpg'
     },

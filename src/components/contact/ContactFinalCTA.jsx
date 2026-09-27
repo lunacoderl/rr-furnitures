@@ -27,7 +27,7 @@ export default function ContactFinalCTA() {
       >
         <img
           src="/hero-home.png"
-          alt="Ready to talk furniture - RR Furnitures"
+          alt="Ready to talk furniture - RR Enterprises"
           style={{
             width: '100%',
             height: '100%',
@@ -87,7 +87,7 @@ export default function ContactFinalCTA() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <a
-              href={`tel:${business.contact?.phone || business.phone || '09985704432'}`}
+              href={`tel:${business.contact?.phone || business.phone || '07997145791'}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

@@ -1,23 +1,23 @@
 /**
- * RR FURNITURES — BUSINESS CORE DATA
+ * RR Enterprises — BUSINESS CORE DATA
  * Single source of truth for business contact, address, hours, and social media.
  */
 
 export const business = {
-  name: "RR Furnitures",
+  name: "RR Enterprises",
   tagline: "Furniture That Shapes Your Space",
   shortDescription: "Custom sofa designs, furniture manufacturing, repair, cleaning, and upholstery solutions crafted for your comfort and space.",
   
-  phone: "099857 04432",
-  phoneRaw: "+919985704432",
-  whatsapp: "099857 04432",
-  whatsappRaw: "919985704432",
+  phone: "79971 45791",
+  phoneRaw: "+917997145791",
+  whatsapp: "79971 45791",
+  whatsappRaw: "917997145791",
   contact: {
-    phone: "099857 04432",
-    phoneDisplay: "099857 04432",
-    phoneRaw: "+919985704432",
-    whatsapp: "099857 04432",
-    whatsappRaw: "919985704432"
+    phone: "79971 45791",
+    phoneDisplay: "79971 45791",
+    phoneRaw: "+917997145791",
+    whatsapp: "79971 45791",
+    whatsappRaw: "917997145791"
   },
   
   address: {
@@ -32,7 +32,7 @@ export const business = {
   },
   
   maps: {
-    embedQuery: "RR Furnitures, Rikshala Bazar, Islampet, 1st Line, Corner, Ongole, Andhra Pradesh 523001",
+    embedQuery: "RR Enterprises, Rikshala Bazar, Islampet, 1st Line, Corner, Ongole, Andhra Pradesh 523001",
     directUrl: "https://www.google.com/maps/search/?api=1&query=RR+Furnitures+Rikshala+Bazar+Islampet+Ongole+523001"
   },
   

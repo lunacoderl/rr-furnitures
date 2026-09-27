@@ -1,5 +1,5 @@
 /**
- * RR FURNITURES — SERVICES DATA SCHEMA
+ * RR Enterprises — SERVICES DATA SCHEMA
  * Single source of truth for all 7 confirmed furniture services.
  * Powers the Services list, reusable ServiceDetail template, home showcases, and contact dropdown.
  */
@@ -12,7 +12,7 @@ export const services = [
     shortTitle: "Custom Sofa",
     category: "Design & Customization",
     shortDescription: "Tailored sofa aesthetics, dimensions, fabrics, and foam comfort engineered to fit your specific room architecture.",
-    overview: "Every home has unique dimensions and personal aesthetic preferences. At RR Furnitures, our custom sofa design service lets you choose the exact style, seating capacity, corner alignment, upholstery fabric, and foam density suited to your living space.",
+    overview: "Every home has unique dimensions and personal aesthetic preferences. At RR Enterprises, our custom sofa design service lets you choose the exact style, seating capacity, corner alignment, upholstery fabric, and foam density suited to your living space.",
     accent: "#651F2A", // Deep Burgundy
     accentName: "Burgundy",
     icon: "Sofa",
@@ -94,7 +94,7 @@ export const services = [
     faq: [
       {
         q: "Can I choose my own sofa cloth and foam grade?",
-        a: "Yes! At RR Furnitures, complete customization of fabric catalogs (colors, textures, weaves) and foam densities is central to our process."
+        a: "Yes! At RR Enterprises, complete customization of fabric catalogs (colors, textures, weaves) and foam densities is central to our process."
       },
       {
         q: "How do we decide the right sofa dimensions for our living room?",
@@ -110,7 +110,7 @@ export const services = [
     shortTitle: "Manufacturing",
     category: "Workshop & Production",
     shortDescription: "End-to-end furniture fabrication with seasoned hardwood framing, heavy-duty suspension, and bench-made tailoring.",
-    overview: "At RR Furnitures, we manufacture sofas from the skeletal frame up. By overseeing the woodwork, joint reinforcement, suspension webbing, high-density foam layering, and upholstery in our own workshop, we guarantee structural integrity and immaculate finishing.",
+    overview: "At RR Enterprises, we manufacture sofas from the skeletal frame up. By overseeing the woodwork, joint reinforcement, suspension webbing, high-density foam layering, and upholstery in our own workshop, we guarantee structural integrity and immaculate finishing.",
     accent: "#A95743", // Terracotta
     accentName: "Terracotta",
     icon: "Factory",
@@ -487,7 +487,7 @@ export const services = [
     shortTitle: "Foam & Upholstery",
     category: "Materials & Custom Comfort",
     shortDescription: "Custom foam cutting, mattress selections, and vast upholstery fabrics from leading certified manufacturers.",
-    overview: "The secret to long-lasting furniture is what lies beneath the cloth. RR Furnitures provides specialized foam supply, custom cutting to any template, and access to premium upholstery fabrics, working with trusted names like Duroflex, M.M. Foam, SureRest, Century Foams, and Darpan Cloth.",
+    overview: "The secret to long-lasting furniture is what lies beneath the cloth. RR Enterprises provides specialized foam supply, custom cutting to any template, and access to premium upholstery fabrics, working with trusted names like Duroflex, M.M. Foam, SureRest, Century Foams, and Darpan Cloth.",
     accent: "#4A3B32", // Deep Earth Charcoal
     accentName: "Charcoal",
     icon: "Layers",

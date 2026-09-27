@@ -241,11 +241,11 @@ export default function FloatingContact() {
       {/* 4. CALL CTA */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <a
-          href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
+          href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+917997145791'}`}
           onMouseEnter={() => setHoveredButton('call')}
           onMouseLeave={() => setHoveredButton(null)}
-          title={`Call RR Furnitures (${business.contact?.phone || business.phone || '099857 04432'})`}
-          aria-label="Call RR Furnitures"
+          title={`Call RR Enterprises (${business.contact?.phone || business.phone || '79971 45791'})`}
+          aria-label="Call RR Enterprises"
           style={{
             width: '46px',
             height: '46px',
@@ -286,7 +286,7 @@ export default function FloatingContact() {
             }}
             className="hidden md:block"
           >
-            Call 099857 04432
+            Call 79971 45791
           </div>
         )}
       </div>

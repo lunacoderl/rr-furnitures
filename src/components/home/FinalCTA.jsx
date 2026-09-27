@@ -158,7 +158,7 @@ export default function FinalCTA() {
           >
             {/* Call Us Card */}
             <a
-              href={`tel:${business.contact?.phone || business.phone || '09985704432'}`}
+              href={`tel:${business.contact?.phone || business.phone || '07997145791'}`}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -201,7 +201,7 @@ export default function FinalCTA() {
                   Call Us
                 </div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#FFFFFF', letterSpacing: '0.02em' }}>
-                  {business.contact?.phoneDisplay || business.phone || '099857 04432'}
+                  {business.contact?.phoneDisplay || business.phone || '79971 45791'}
                 </div>
               </div>
             </a>

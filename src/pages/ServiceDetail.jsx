@@ -153,7 +153,7 @@ export default function ServiceDetail() {
 
                 <button
                   type="button"
-                  onClick={() => openDirectWhatsApp(`Hello RR Furnitures, I am interested in your ${service.title} service.`)}
+                  onClick={() => openDirectWhatsApp(`Hello RR Enterprises, I am interested in your ${service.title} service.`)}
                   className="btn-secondary"
                 >
                   <MessageCircle size={15} color="#25D366" />
@@ -441,7 +441,7 @@ export default function ServiceDetail() {
             </Link>
             <button
               type="button"
-              onClick={() => openDirectWhatsApp(`Hi RR Furnitures, I would like to discuss ${service.title}.`)}
+              onClick={() => openDirectWhatsApp(`Hi RR Enterprises, I would like to discuss ${service.title}.`)}
               className="btn-secondary"
             >
               <MessageCircle size={16} color="#25D366" />

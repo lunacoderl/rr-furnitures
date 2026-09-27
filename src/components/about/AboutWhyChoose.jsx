@@ -65,7 +65,7 @@ export default function AboutWhyChoose() {
               }}
             >
               Why Customers<br />
-              Choose RR Furnitures?
+              Choose RR Enterprises?
             </h2>
 
             <p
@@ -77,7 +77,7 @@ export default function AboutWhyChoose() {
                 maxWidth: '340px'
               }}
             >
-              A combination of customization, manufacturing, craftsmanship and furniture-care solutions makes RR Furnitures a preferred choice.
+              A combination of customization, manufacturing, craftsmanship and furniture-care solutions makes RR Enterprises a preferred choice.
             </p>
 
             <Link

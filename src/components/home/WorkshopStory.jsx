@@ -50,7 +50,7 @@ export default function WorkshopStory() {
             >
               <img
                 src="/images/workshop/workshop-07.jpg"
-                alt="Master craftsman at work in RR Furnitures workshop"
+                alt="Master craftsman at work in RR Enterprises workshop"
                 style={{
                   width: '100%',
                   height: '100%',

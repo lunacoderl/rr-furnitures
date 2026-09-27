@@ -28,7 +28,7 @@ export default function ContactHero() {
       >
         <img
           src="/hero-contact.png"
-          alt="Let's Create Something for Your Space - RR Furnitures"
+          alt="Let's Create Something for Your Space - RR Enterprises"
           style={{
             width: '100%',
             height: '100%',
@@ -130,13 +130,13 @@ export default function ContactHero() {
               maxWidth: '480px'
             }}
           >
-            Have a sofa requirement, furniture enquiry or service request? Talk to RR Furnitures.
+            Have a sofa requirement, furniture enquiry or service request? Talk to RR Enterprises.
           </p>
 
           {/* Action Buttons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <a
-              href={`tel:${business.contact?.phone || business.phone || '09985704432'}`}
+              href={`tel:${business.contact?.phone || business.phone || '07997145791'}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

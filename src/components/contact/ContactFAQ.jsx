@@ -28,7 +28,7 @@ export default function ContactFAQ() {
     },
     {
       q: 'How can I place an enquiry?',
-      a: 'You can fill out the enquiry form above, reach out directly on WhatsApp at 099857 04432, or call us directly anytime during business hours.'
+      a: 'You can fill out the enquiry form above, reach out directly on WhatsApp at 79971 45791, or call us directly anytime during business hours.'
     }
   ];
 
@@ -123,7 +123,7 @@ export default function ContactFAQ() {
             >
               <img
                 src="/hero-contact.png"
-                alt="RR Furnitures Comfortable Living Space"
+                alt="RR Enterprises Comfortable Living Space"
                 style={{
                   width: '100%',
                   height: '100%',

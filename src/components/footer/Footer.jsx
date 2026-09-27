@@ -171,7 +171,7 @@ export default function Footer() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Phone size={14} style={{ color: 'rgba(255,255,255,0.4)', flexShrink: 0 }} />
                 <a
-                  href={`tel:${business.contact?.phone || business.phone || '09985704432'}`}
+                  href={`tel:${business.contact?.phone || business.phone || '07997145791'}`}
                   style={{
                     color: 'rgba(255,255,255,0.7)',
                     fontSize: '0.8rem',
@@ -182,7 +182,7 @@ export default function Footer() {
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#D4AF37')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
                 >
-                  {business.contact?.phoneDisplay || business.phone || '099857 04432'}
+                  {business.contact?.phoneDisplay || business.phone || '79971 45791'}
                 </a>
               </div>
             </div>
@@ -228,7 +228,7 @@ export default function Footer() {
               </button>
 
               <a
-                href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
+                href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+917997145791'}`}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -272,7 +272,7 @@ export default function Footer() {
           }}
         >
           <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem' }}>
-            © {new Date().getFullYear()} RR Furnitures. All Rights Reserved.
+            © {new Date().getFullYear()} RR Enterprises. All Rights Reserved.
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>

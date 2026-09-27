@@ -84,7 +84,7 @@ export default function ContactLocationHours() {
               }}
             >
               <iframe
-                title="RR Furnitures Ongole Location"
+                title="RR Enterprises Ongole Location"
                 src="https://maps.google.com/maps?q=RR+Furnitures+Rikshala+Bazar+Islampet+Ongole+523001&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
@@ -195,7 +195,7 @@ export default function ContactLocationHours() {
           >
             <img
               src="/images/workshop/workshop-07.jpg"
-              alt="RR Furnitures Storefront in Ongole"
+              alt="RR Enterprises Storefront in Ongole"
               style={{
                 width: '100%',
                 height: '100%',

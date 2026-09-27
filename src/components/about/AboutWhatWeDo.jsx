@@ -121,7 +121,7 @@ export default function AboutWhatWeDo() {
                 margin: '0 0 1.25rem 0'
               }}
             >
-              From custom sofas and manufacturing to repair, cleaning and upholstery, RR Furnitures brings together furniture solutions under one roof.
+              From custom sofas and manufacturing to repair, cleaning and upholstery, RR Enterprises brings together furniture solutions under one roof.
             </p>
 
             <Link

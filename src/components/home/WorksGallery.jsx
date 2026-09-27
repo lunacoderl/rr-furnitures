@@ -84,7 +84,7 @@ export default function WorksGallery() {
                 marginBottom: '1rem'
               }}
             >
-              A selection of sofa and furniture work from RR Furnitures.
+              A selection of sofa and furniture work from RR Enterprises.
             </p>
 
             <Link
