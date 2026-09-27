@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle, Search } from 'lucide-react';
+import { Phone, MessageCircle } from 'lucide-react';
 import { business } from '../../data/business';
 import { openDirectWhatsApp } from '../../utils/createWhatsAppMessage';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 25) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -23,11 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
-
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
@@ -37,80 +31,312 @@ export default function Navbar() {
   ];
 
   return (
-    <>
-      {/* 
-        MASTER NAVIGATION BAR:
-        Ultra-clean, zero-clutter mobile layout + Sculpted Luxury Capsule on Desktop.
-        100% sticky at all times with no overflow or screen crowding.
-      */}
-      <header
+    /* 
+      MASTER STICKY NAVIGATION BAR:
+      - 100% Fixed at Top across ALL pages & viewports
+      - Desktop: Elegant Single-Row with Centered [Home, About, Services, Works, Contact] Capsule
+      - Mobile: Direct Two-Tier Architectural Nav with [Home, About, Services, Works, Contact] ALWAYS VISIBLE (Zero Clumsy Dropdowns!)
+    */
+    <header
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        maxWidth: '100vw',
+        zIndex: 1000,
+        boxSizing: 'border-box',
+        transition: 'all 0.25s ease',
+        backgroundColor: isScrolled
+          ? 'rgba(16, 14, 14, 0.96)'
+          : 'rgba(23, 21, 21, 0.92)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(201, 154, 50, 0.22)',
+        boxShadow: isScrolled ? '0 8px 30px rgba(0, 0, 0, 0.65)' : '0 4px 20px rgba(0, 0, 0, 0.4)'
+      }}
+    >
+      {/* =========================================================================
+          DESKTOP VIEW (Screen >= 900px): Sleek 3-Zone Luxury Navbar
+          ========================================================================= */}
+      <div
+        className="hidden md:flex container-custom"
         style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
+          alignItems: 'center',
+          justifyContent: 'space-between',
           width: '100%',
-          maxWidth: '100vw',
-          zIndex: 1000,
-          boxSizing: 'border-box',
-          transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-          padding: isScrolled ? '0.55rem 0' : '0.85rem 0',
-          backgroundColor: isScrolled
-            ? 'rgba(18, 16, 16, 0.96)'
-            : 'rgba(23, 21, 21, 0.88)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: isScrolled
-            ? '1px solid rgba(201, 154, 50, 0.22)'
-            : '1px solid rgba(255, 255, 255, 0.08)',
-          boxShadow: isScrolled ? '0 10px 30px -10px rgba(0, 0, 0, 0.5)' : 'none'
+          maxWidth: '1440px',
+          margin: '0 auto',
+          padding: isScrolled ? '0.65rem clamp(1rem, 3vw, 2.5rem)' : '0.95rem clamp(1rem, 3vw, 2.5rem)',
+          transition: 'padding 0.25s ease'
         }}
       >
+        {/* Left: Brand Monogram & Title */}
+        <Link
+          to="/"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            textDecoration: 'none',
+            color: '#F6F0E7',
+            flexShrink: 0
+          }}
+        >
+          {/* Gold Crest */}
+          <div
+            style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: '7px',
+              border: '1.5px solid rgba(201, 154, 50, 0.7)',
+              background: 'linear-gradient(135deg, #2A1F1B 0%, #151110 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 2px 12px rgba(201, 154, 50, 0.2)',
+              flexShrink: 0
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-brand)',
+                fontSize: '1.15rem',
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                color: '#D4AF37',
+                lineHeight: 1
+              }}
+            >
+              RR
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-brand)',
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.07em',
+                  color: '#F6F0E7',
+                  lineHeight: 1.1,
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                RR FURNITURES
+              </span>
+              <span
+                style={{
+                  fontSize: '0.58rem',
+                  padding: '0.1rem 0.35rem',
+                  borderRadius: '3px',
+                  backgroundColor: 'rgba(201, 154, 50, 0.15)',
+                  border: '1px solid rgba(201, 154, 50, 0.35)',
+                  color: '#D4AF37',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em'
+                }}
+              >
+                ONGOLE
+              </span>
+            </div>
+            <span
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.62rem',
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: '#A89985',
+                marginTop: '1px',
+                fontWeight: 500,
+                whiteSpace: 'nowrap'
+              }}
+            >
+              BESPOKE SOFAS & CRAFTSMANSHIP
+            </span>
+          </div>
+        </Link>
+
+        {/* Center: Prominent Navigation Links Capsule */}
+        <nav
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: 'rgba(23, 21, 21, 0.85)',
+            padding: '0.35rem 0.5rem',
+            borderRadius: '9999px',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
+            boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 4px 15px rgba(0,0,0,0.3)',
+            gap: '0.25rem'
+          }}
+        >
+          {navLinks.map((link) => {
+            const isActive =
+              location.pathname === link.path ||
+              (link.path !== '/' && location.pathname.startsWith(link.path));
+
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.86rem',
+                  fontWeight: isActive ? 700 : 500,
+                  letterSpacing: '0.02em',
+                  textDecoration: 'none',
+                  color: isActive ? '#171515' : '#EAE3D9',
+                  backgroundColor: isActive ? '#C99A32' : 'transparent',
+                  padding: '0.45rem 1.15rem',
+                  borderRadius: '9999px',
+                  transition: 'all 0.22s cubic-bezier(0.22, 1, 0.36, 1)',
+                  boxShadow: isActive
+                    ? '0 3px 12px rgba(201, 154, 50, 0.4)'
+                    : 'none',
+                  whiteSpace: 'nowrap'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '#FFFFFF';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '#EAE3D9';
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Right: Hotline + Get in Touch Button */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <a
+            href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              padding: '0.45rem 0.85rem',
+              borderRadius: '9999px',
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              color: '#F6F0E7',
+              textDecoration: 'none',
+              fontSize: '0.8rem',
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 600,
+              transition: 'all 0.2s ease',
+              whiteSpace: 'nowrap'
+            }}
+            className="hidden xl:flex"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(201, 154, 50, 0.4)';
+              e.currentTarget.style.backgroundColor = 'rgba(201, 154, 50, 0.08)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+            }}
+            title="Call RR Furnitures"
+          >
+            <Phone size={13} color="#C99A32" />
+            <span>099857 04432</span>
+          </a>
+
+          <Link
+            to="/contact"
+            style={{
+              background: 'linear-gradient(135deg, #651F2A 0%, #4E131C 100%)',
+              color: '#F6F0E7',
+              padding: '0.55rem 1.35rem',
+              borderRadius: '9999px',
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.84rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              border: '1px solid rgba(201, 154, 50, 0.45)',
+              boxShadow: '0 4px 15px rgba(101, 31, 42, 0.4)',
+              transition: 'all 0.25s ease',
+              whiteSpace: 'nowrap'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-1px)';
+              e.currentTarget.style.borderColor = '#C99A32';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.borderColor = 'rgba(201, 154, 50, 0.45)';
+            }}
+          >
+            <span>Get in Touch</span>
+            <span style={{ color: '#D4AF37', fontSize: '0.85rem' }}>➔</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* =========================================================================
+          MOBILE VIEW (Screen < 900px): Clean Two-Tier Direct Sticky Header
+          ALL 5 LINKS (Home, About, Services, Works, Contact) ALWAYS VISIBLE!
+          NO Clumsy Dropdowns or Fullscreen Takeovers!
+          ========================================================================= */}
+      <div
+        className="flex md:hidden"
+        style={{
+          flexDirection: 'column',
+          width: '100%',
+          boxSizing: 'border-box'
+        }}
+      >
+        {/* Tier 1: Brand Logo + Instant Call & WhatsApp Micro-Actions */}
         <div
-          className="container-custom"
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            width: '100%',
-            maxWidth: '1440px',
-            margin: '0 auto',
-            paddingLeft: 'clamp(1rem, 3vw, 2.5rem)',
-            paddingRight: 'clamp(1rem, 3vw, 2.5rem)'
+            padding: '0.55rem 1rem',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.06)'
           }}
         >
-          {/* BRAND LOGO & CREST (Streamlined & elegant on mobile) */}
+          {/* Brand Emblem + Name */}
           <Link
             to="/"
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.65rem',
+              gap: '0.55rem',
               textDecoration: 'none',
-              color: '#F6F0E7',
-              flexShrink: 0
+              color: '#F6F0E7'
             }}
           >
-            {/* Architectural Gold Emblem */}
             <div
               style={{
-                width: '34px',
-                height: '34px',
+                width: '30px',
+                height: '30px',
                 borderRadius: '6px',
-                border: '1.2px solid rgba(201, 154, 50, 0.6)',
-                background: 'linear-gradient(135deg, #261D19 0%, #151110 100%)',
+                border: '1.2px solid rgba(201, 154, 50, 0.65)',
+                background: 'linear-gradient(135deg, #2A1F1B 0%, #151110 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 2px 10px rgba(201, 154, 50, 0.15)',
                 flexShrink: 0
               }}
             >
               <span
                 style={{
                   fontFamily: 'var(--font-brand)',
-                  fontSize: '1.05rem',
+                  fontSize: '0.95rem',
                   fontWeight: 700,
-                  letterSpacing: '0.04em',
                   color: '#D4AF37',
                   lineHeight: 1
                 }}
@@ -119,383 +345,134 @@ export default function Navbar() {
               </span>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-brand)',
-                    fontSize: '1.02rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.06em',
-                    color: '#F6F0E7',
-                    lineHeight: 1.1,
-                    whiteSpace: 'nowrap'
-                  }}
-                >
-                  RR FURNITURES
-                </span>
-                <span
-                  style={{
-                    fontSize: '0.55rem',
-                    padding: '0.08rem 0.3rem',
-                    borderRadius: '3px',
-                    backgroundColor: 'rgba(201, 154, 50, 0.15)',
-                    border: '1px solid rgba(201, 154, 50, 0.35)',
-                    color: '#D4AF37',
-                    fontWeight: 600,
-                    letterSpacing: '0.08em'
-                  }}
-                  className="hidden sm:inline-block"
-                >
-                  ONGOLE
-                </span>
-              </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <span
                 style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '0.58rem',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  color: '#A89985',
-                  marginTop: '1px',
-                  fontWeight: 500,
-                  whiteSpace: 'nowrap'
+                  fontFamily: 'var(--font-brand)',
+                  fontSize: '0.98rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.05em',
+                  color: '#F6F0E7',
+                  lineHeight: 1
                 }}
-                className="hidden md:block"
               >
-                BESPOKE SOFAS & MANUFACTURING
+                RR FURNITURES
+              </span>
+              <span
+                style={{
+                  fontSize: '0.52rem',
+                  padding: '0.05rem 0.25rem',
+                  borderRadius: '3px',
+                  backgroundColor: 'rgba(201, 154, 50, 0.15)',
+                  border: '1px solid rgba(201, 154, 50, 0.35)',
+                  color: '#D4AF37',
+                  fontWeight: 600,
+                  letterSpacing: '0.06em'
+                }}
+              >
+                ONGOLE
               </span>
             </div>
           </Link>
 
-          {/* DESKTOP CENTER NAVIGATION CAPSULE (Hidden on mobile) */}
-          <nav className="hidden lg:flex items-center">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.25rem',
-                backgroundColor: 'rgba(23, 21, 21, 0.75)',
-                padding: '0.3rem 0.45rem',
-                borderRadius: '9999px',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.08)'
-              }}
-            >
-              {navLinks.map((link) => {
-                const isActive =
-                  location.pathname === link.path ||
-                  (link.path !== '/' && location.pathname.startsWith(link.path));
-
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    style={{
-                      fontFamily: 'var(--font-sans)',
-                      fontSize: '0.84rem',
-                      fontWeight: isActive ? 600 : 500,
-                      letterSpacing: '0.02em',
-                      textDecoration: 'none',
-                      color: isActive ? '#171515' : '#E8E1D5',
-                      backgroundColor: isActive ? '#C99A32' : 'transparent',
-                      padding: '0.4rem 1.05rem',
-                      borderRadius: '9999px',
-                      transition: 'all 0.22s cubic-bezier(0.22, 1, 0.36, 1)',
-                      boxShadow: isActive
-                        ? '0 4px 12px rgba(201, 154, 50, 0.35)'
-                        : 'none'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.color = '#FFFFFF';
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.color = '#E8E1D5';
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                      }
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          </nav>
-
-          {/* DESKTOP RIGHT ACTIONS (Hidden on mobile) */}
-          <div className="hidden lg:flex items-center gap-3">
-            {/* Quick Catalog Search */}
-            <Link
-              to="/works"
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#D8C6AE',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#C99A32';
-                e.currentTarget.style.color = '#C99A32';
-                e.currentTarget.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
-                e.currentTarget.style.color = '#D8C6AE';
-                e.currentTarget.style.transform = 'scale(1)';
-              }}
-              title="Explore Works Catalog"
-              aria-label="Explore Works"
-            >
-              <Search size={15} />
-            </Link>
-
-            {/* Direct Phone Helpline */}
+          {/* Micro Actions: Direct Call & WhatsApp */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
             <a
               href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.45rem 0.8rem',
-                borderRadius: '9999px',
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                backgroundColor: '#651F2A',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 color: '#F6F0E7',
-                textDecoration: 'none',
-                fontSize: '0.78rem',
-                fontFamily: 'var(--font-sans)',
-                fontWeight: 600,
-                transition: 'all 0.2s ease'
-              }}
-              className="hidden xl:flex"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(201, 154, 50, 0.4)';
-                e.currentTarget.style.backgroundColor = 'rgba(201, 154, 50, 0.08)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-              }}
-              title="Call RR Furnitures"
-            >
-              <Phone size={13} color="#C99A32" />
-              <span>099857 04432</span>
-            </a>
-
-            {/* Primary CTA */}
-            <Link
-              to="/contact"
-              style={{
-                background: 'linear-gradient(135deg, #651F2A 0%, #4E131C 100%)',
-                color: '#F6F0E7',
-                padding: '0.55rem 1.25rem',
-                borderRadius: '9999px',
-                fontFamily: 'var(--font-sans)',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                border: '1px solid rgba(201, 154, 50, 0.45)',
-                boxShadow: '0 4px 15px rgba(101, 31, 42, 0.35)',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-1px)';
-                e.currentTarget.style.borderColor = '#C99A32';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.borderColor = 'rgba(201, 154, 50, 0.45)';
-              }}
-            >
-              <span>Get in Touch</span>
-              <span style={{ color: '#D4AF37', fontSize: '0.85rem' }}>➔</span>
-            </Link>
-          </div>
-
-          {/* MOBILE MINIMAL CONTROLS (Clean, Single Hamburger button — zero crowding!) */}
-          <div className="flex lg:hidden items-center">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{
-                background: mobileMenuOpen ? 'rgba(201, 154, 50, 0.18)' : 'rgba(255, 255, 255, 0.07)',
-                border: mobileMenuOpen ? '1px solid #C99A32' : '1px solid rgba(255, 255, 255, 0.14)',
-                color: mobileMenuOpen ? '#C99A32' : '#F6F0E7',
-                width: '38px',
-                height: '38px',
-                borderRadius: '8px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                textDecoration: 'none'
               }}
-              aria-label="Toggle navigation menu"
+              title="Call RR Furnitures"
+              aria-label="Call RR Furnitures"
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              <Phone size={14} />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => openDirectWhatsApp()}
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                backgroundColor: '#25D366',
+                border: 'none',
+                color: '#FFFFFF',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer'
+              }}
+              title="Chat on WhatsApp"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle size={16} />
             </button>
           </div>
-
         </div>
-      </header>
 
-      {/* 
-        COMPACT MOBILE DROPDOWN:
-        Small floating luxury card, positioned cleanly under the header.
-        Not full-screen! Clean links + quick Call & WhatsApp.
-      */}
-      {mobileMenuOpen && (
-        <>
-          {/* Invisible click-outside dismiss backdrop */}
-          <div
-            onClick={() => setMobileMenuOpen(false)}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.35)',
-              zIndex: 995
-            }}
-            className="lg:hidden"
-            aria-hidden="true"
-          />
+        {/* Tier 2: The 5 Essential Navigation Links Track (Always Direct 1-Tap Access!) */}
+        <nav
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0.4rem 0.75rem',
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none',
+            gap: '0.25rem'
+          }}
+          className="mobile-nav-track"
+        >
+          {navLinks.map((link) => {
+            const isActive =
+              location.pathname === link.path ||
+              (link.path !== '/' && location.pathname.startsWith(link.path));
 
-          {/* Sleek Floating Menu Dropdown */}
-          <div
-            style={{
-              position: 'fixed',
-              top: '56px',
-              right: '0.85rem',
-              width: '240px',
-              zIndex: 999,
-              backgroundColor: 'rgba(22, 20, 20, 0.98)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              borderRadius: '12px',
-              border: '1px solid rgba(201, 154, 50, 0.35)',
-              boxShadow: '0 12px 35px rgba(0, 0, 0, 0.65)',
-              padding: '0.75rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.45rem',
-              boxSizing: 'border-box'
-            }}
-            className="lg:hidden"
-          >
-            {/* Navigation links */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-              {navLinks.map((link) => {
-                const isActive =
-                  location.pathname === link.path ||
-                  (link.path !== '/' && location.pathname.startsWith(link.path));
-
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{
-                      fontFamily: 'var(--font-sans)',
-                      fontSize: '0.88rem',
-                      fontWeight: isActive ? 700 : 500,
-                      textDecoration: 'none',
-                      color: isActive ? '#C99A32' : '#F6F0E7',
-                      backgroundColor: isActive ? 'rgba(201, 154, 50, 0.12)' : 'transparent',
-                      padding: '0.45rem 0.65rem',
-                      borderRadius: '6px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      transition: 'all 0.18s ease'
-                    }}
-                  >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span
-                        style={{
-                          width: '5px',
-                          height: '5px',
-                          borderRadius: '50%',
-                          backgroundColor: '#C99A32'
-                        }}
-                      />
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Subtle Divider */}
-            <div style={{ height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.08)', margin: '0.2rem 0' }} />
-
-            {/* ONLY Call and WhatsApp action buttons */}
-            <div style={{ display: 'flex', gap: '0.4rem' }}>
-              <a
-                href={`tel:${business.contact?.phoneRaw || business.phoneRaw || '+919985704432'}`}
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
                 style={{
-                  flex: 1,
-                  padding: '0.5rem',
-                  backgroundColor: '#651F2A',
-                  color: '#F6F0E7',
-                  borderRadius: '6px',
-                  fontWeight: 600,
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '0.82rem',
+                  fontWeight: isActive ? 700 : 500,
+                  letterSpacing: '0.01em',
                   textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.35rem',
-                  fontSize: '0.78rem',
-                  fontFamily: 'var(--font-sans)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)'
-                }}
-              >
-                <Phone size={13} />
-                <span>Call</span>
-              </a>
-
-              <button
-                type="button"
-                onClick={() => {
-                  openDirectWhatsApp();
-                  setMobileMenuOpen(false);
-                }}
-                style={{
-                  flex: 1.2,
-                  padding: '0.5rem',
-                  backgroundColor: '#25D366',
-                  color: '#FFFFFF',
+                  color: isActive ? '#171515' : '#DED3C2',
+                  backgroundColor: isActive ? '#C99A32' : 'rgba(255, 255, 255, 0.05)',
+                  padding: '0.35rem 0.65rem',
                   borderRadius: '6px',
-                  fontWeight: 600,
-                  border: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.35rem',
-                  fontSize: '0.78rem',
-                  fontFamily: 'var(--font-sans)',
-                  cursor: 'pointer'
+                  border: isActive ? '1px solid #E0AE41' : '1px solid rgba(255, 255, 255, 0.08)',
+                  boxShadow: isActive ? '0 2px 8px rgba(201, 154, 50, 0.4)' : 'none',
+                  textAlign: 'center',
+                  flex: '1 0 auto',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.18s ease'
                 }}
               >
-                <MessageCircle size={14} />
-                <span>WhatsApp</span>
-              </button>
-            </div>
-          </div>
-        </>
-      )}
-    </>
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+
+      <style>{`
+        .mobile-nav-track::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+    </header>
   );
 }
